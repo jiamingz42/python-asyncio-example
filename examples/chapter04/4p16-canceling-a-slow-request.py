@@ -11,6 +11,7 @@ async def main():
         done, pending = await asyncio.wait([api_a, api_b], timeout=1)
  
         for task in pending:
+            print(task)
             if task is api_b:
                 print('API B too slow, cancelling')
                 task.cancel()
